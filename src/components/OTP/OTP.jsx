@@ -1,63 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate} from 'react-router-dom';
-import './otp.css';
-
-function OTP() {
-  const { email, otp } = useParams();
-  const [otpValues, setOtpValues] = useState(Array(6).fill(''));
-  const [timer, setTimer] = useState(60);
-  const history = useNavigate();
-
-  useEffect(() => {
-    const countdown = setInterval(() => {
-      setTimer(timer => timer - 1);
-    }, 1000);
-    return () => clearInterval(countdown);
-  }, []);
-
-  const handleOtpChange = (index, value) => {
-    const newOtpValues = [...otpValues];
-    newOtpValues[index] = value;
-    setOtpValues(newOtpValues);
-  };
-
-  const handleBackButtonClick = () => {
-    history.goBack();
-  };
-
-  const handleResendClick = () => {
-    // Implement resend OTP logic here
-    setTimer(60);
-  };
-
+import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./OTP.css";
+const OTP = () => {
+  let a = localStorage.getItem("a");
+ const navigate= useNavigate();
   return (
-    <div className="otp-container">
-      <h1 >Enter the verification</h1>
-      <h1>to continue</h1>
-      <p className="otp-paragraph">We have sent to {email}. If you don't see it,check your spam</p>
-      <div className="otp-inputs">
-        {otpValues.map((value, index) => (
-          <input className='otp-inputs'
-            key={index}
-            type="text"
-            maxLength="1"
-            value={value}
-            onChange={e => handleOtpChange(index, e.target.value)}
-          />
-        ))}
-      </div>
-      <div className="otp-actions">
-        <button className="otp-back-button" onClick={handleBackButtonClick}>Back</button>
-        <div className="otp-timer">
-          {timer === 0 ? (
-            <button onClick={handleResendClick}>Resend OTP</button>
-          ) : (
-            <span className="otp-resend-button">Resend OTP in {timer} seconds</span>
-          )}
+    <div>
+    { a ?
+      <div className="w3-container w3-center w3-animate-zoom justify-center xyz items-center flex-col flex text-[3rem] text-center h-[100vh]">
+        <div className="">
+        ✅ Success
         </div>
-      </div>
+        <div>
+        <button onClick={() => navigate("/")} className="bg-blue-500 my-[4rem] hover:bg-blue-700 text-white font-bold px-4 rounded">
+        Back
+        </button>
+        </div>
+      </div>:null
+
+    }
     </div>
   );
-}
+};
 
 export default OTP;
