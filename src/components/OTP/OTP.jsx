@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import "./OTP.css";
 const OTP = () => {
   let a = localStorage.getItem("a");
+  const x = () =>{
+    localStorage.removeItem("a")
+    navigate("/");
+  }
  const navigate= useNavigate();
   return (
     <div>
@@ -13,7 +17,7 @@ const OTP = () => {
         ✅ Success
         </div>
         <div>
-        <button onClick={() => navigate("/")} className="bg-blue-500 my-[4rem] hover:bg-blue-700 text-white font-bold px-4 rounded">
+        <button onClick={() => x()} className="bg-blue-500 my-[4rem] hover:bg-blue-700 text-white font-bold px-4 rounded">
         Back
         </button>
         </div>
