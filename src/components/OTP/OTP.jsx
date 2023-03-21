@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./OTP.css";
+import "./otp.css";
 const OTP = () => {
   let a = localStorage.getItem("a");
   const x = () =>{

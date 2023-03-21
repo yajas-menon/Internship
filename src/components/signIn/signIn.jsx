@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import main from "../images/1.png";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import "./signin.css";
+import "./SignIn.css";
 const SignIn = () => {
   const navigate = useNavigate();
   const [hover, setHover] = useState(true);
@@ -64,7 +64,7 @@ const SignIn = () => {
               type="text"
               required
               onChange={(e) => values(e)}
-              className="hover:border-blue-900 rounded-[4px] text-center text-lg w-[420px] h-[66px] bg-slate-300 focus:border-blue-900 border-[1px]"
+              className="hover:border-blue-900 rounded-[12px] text-center text-lg w-[420px] h-[66px] bg-slate-300 focus:border-blue-900 border-[1px]"
             />
             <br />
             <input
@@ -72,17 +72,17 @@ const SignIn = () => {
               type="Password"
               required
               onChange={(e) => setPass(e.target.value)}
-              className="hover:border-blue-900 mt-0 rounded-[4px] text-center text-lg w-[420px] h-[66px] bg-slate-300 focus:border-blue-900 border-[1px]"
+              className="hover:border-blue-900 mt-0 rounded-[12px] text-center text-lg w-[420px] h-[66px] bg-slate-300 focus:border-blue-900 border-[1px]"
             />
             <button
               onClick={() => next()}
               onMouseEnter={a}
               onMouseLeave={b}
-              class="bg-blue-500 my-[1.4rem] w-[420px] hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 text-2xl hover:border-blue-500 h-[56px] rounded"
+              class="bg-[#0858F7] my-[1.4rem] w-[420px] rounded-[12px] hover:bg-[#0858F7] text-white font-bold py-2 px-4 border-b-4 border-[#0858F7] text-2xl hover:border-[##0858F7]h-[56px] "
             >
               {button}
             </button>
-            <p className="text-xl text-blue-500 cursor-pointer">
+            <p className=" font-bold text-base text-[#0858F7] cursor-pointer">
               Forgot your Password ?
             </p>
             <p className="text-xl my-[1rem]">
@@ -177,7 +177,7 @@ const SignIn = () => {
           >
             <div className="">
               <img
-                src={main}
+                src={main} alt="banner"
                 className="bg-[#0858F7] mt-[3.3rem] pl-[3.4rem]"
               />
               <div
